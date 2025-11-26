@@ -1,0 +1,105 @@
+<html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cards 3D Insanos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="card" data-tilt>
+      <h3>Card 3d muito foda</h3>
+      <p>textinho epico pra botar so de placeholder pra testar como fica o card slk eu odeio java script com todas as minhas forças quem foi que pensou em criar essa linguagem?</p>
+    </div>
+
+    <div class="card" data-tilt>
+      <h3>Outro card foda</h3>
+      <p>Vtextinho epico pra botar so de placeholder pra testar como fica o card slk eu odeio java script com todas as minhas forças quem foi que pensou em criar essa linguagem??</p>
+    </div>
+
+    <div class="card" data-tilt>
+      <h3>Card mais foda ain</h3>
+      <p>textinho epico pra botar so de placeholder pra testar como fica o card slk eu odeio java script com todas as minhas forças quem foi que pensou em criar essa linguagem???</p>
+    </div>
+
+    <div class="card" data-tilt>
+      <h3>Cabou hihi</h3>
+      <p>textinho epico pra botar so de placeholder pra testar como fica o card slk eu odeio java script com todas as minhas forças quem foi que pensou em criar essa linguagem????</p>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
+
+body {
+  background: #0b0f0c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 260px);
+  gap: 50px;
+}
+
+.card {
+  background: #111;
+  padding: 25px;
+  border-radius: 18px;
+  text-align: center;
+  color: #fff;
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 25px rgba(0, 255, 0, 0.15);
+}
+
+.card h3 {
+  margin: 0 0 19px;
+  font-size: 22px;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.9);
+  transform: translateZ(25px);
+}
+
+.card p {
+  font-size: 14px;
+  opacity: 0.9;
+  transform: translateZ(18px);
+}
+
+const cards = document.querySelectorAll("[data-tilt]");
+
+cards.forEach((card) => {
+  card.addEventListener("mousemove", (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const rotX = (y / rect.height - 0.5) * -55;
+    const rotY = (x / rect.width - 0.5) * 55;
+
+    card.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.12)`;
+
+    const shadowX = (x / rect.width - 0.5) * -50;
+    const shadowY = (y / rect.height - 0.5) * 50;
+
+    card.style.boxShadow = `${-shadowX}px ${shadowY}px 35px rgba(0,255,0,0.8)`;
+  });
+
+  card.addEventListener("mouseleave", () => {
+    card.style.transform = `perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)`;
+    card.style.boxShadow = `0 0 25px rgba(0,255,0,0.25)`;
+  });
+});
