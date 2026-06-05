@@ -1,7 +1,8 @@
 /* BASE */
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+  /* font-family: 'Segoe UI', sans-serif; */
+  font-family: "Comic Sans MS";
   background: radial-gradient(circle at top, #0b2238, #050d18);
   color: white;
   overflow-x: hidden;
