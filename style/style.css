@@ -1,8 +1,16 @@
+/* fontes */
+@font-face {
+  font-family: "ComicSans";
+  src: url("./fonts/comic.woff2") format("woff2");
+  font-weight: normal;
+}
+
+
 /* BASE */
 body {
   margin: 0;
   /* font-family: 'Segoe UI', sans-serif; */
-  font-family: "Comic Sans MS";
+  font-family: "ComicSans";
   background: radial-gradient(circle at top, #0b2238, #050d18);
   color: white;
   overflow-x: hidden;

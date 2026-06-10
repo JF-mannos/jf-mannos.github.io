@@ -1,3 +1,12 @@
+
+/* fontes */
+@font-face {
+  font-family: "ComicSans";
+  src: url("../fonts/comic.woff2") format("woff2");
+  font-weight: normal;
+}
+
+
 body {
     background-color: #091926;
     height: 100%;
@@ -8,7 +17,7 @@ body {
 body h3 {
     width: 1000px;
     height: 50%;
-    font-family: "Comic Sans MS";
+    font-family: "ComicSans";
     display: flex;
     flex-direction: row;
     margin-left: 10%;
@@ -48,5 +57,4 @@ header p {
     /* border: solid black; */
     width: 50%;
     margin-left: 450px;
-
 }
